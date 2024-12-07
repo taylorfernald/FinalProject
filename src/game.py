@@ -10,7 +10,7 @@ class Map():
         self.own_file = open(ownership_path, 'r')
         own_string = self.own_file.read()
         own_bin = bin(int(own_string, 16))[2:].zfill(len(own_string)*4)
-        own_split = [(own_bin[i:i+2]) for i in range(0, len(own_bin), 2)] #GFG
+        own_split = [(own_bin[i:i+2]) for i in range(0, len(own_bin), 2)]
         self.map_array = []
         self.own_array = []
         for x in range(MAPWIDTH):
