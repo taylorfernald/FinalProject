@@ -4,7 +4,6 @@ import socket
 
 class Client():
     def __init__(self):
-        print("Client file successfully reached.")
         self.server_addr = 0
         self.addr = DEVHOST #Note: Replace this with the address of the actual client.
 
@@ -36,8 +35,6 @@ class Client():
                 if request == "?": print("Waiting for turn.")
                 else: print("Could not connect to friend. Are you sure you have the right IP?")
                 return 0
-
-        print(f"Got back {data!r} from server")
         return data
 
         

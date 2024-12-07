@@ -6,7 +6,6 @@ class Server():
     """The server that listens for client requests. Used receive turn requests and give board states"""
     def __init__(self, client):
         """Pass in the client for the same app"""
-        print("Server file successfully reached.")
         #Clients we are actively connected to (app's client is automatically setup)
         self.clients = [client.addr]
         #whose turn it is
@@ -33,7 +32,6 @@ class Server():
             c = sock.accept()
             print("Found connection!")
             #If there is no connection after some time, the program freezes
-            print(f"connection info: {c}")
             return c
         
     def startUp(self):
@@ -44,11 +42,9 @@ class Server():
             
         #While there is data, read it to the data variable
         data = conn.recv(1024)
-        print(f"addr received: {addr}")
 
         #We got a new client, send back ack
         self.clients.append(addr[0])
-        print(f"Connected by {addr}")
         response = data
 
         conn.send(response)
@@ -58,7 +54,6 @@ class Server():
         #Update sends an ACK if a client is asking for a turn request ("?")
         #Else, treat it as a turn submission
         conn, addr = self.listen()
-        print("Got a connection in the update step!")
         changed = addr in self.clients
         data = conn.recv(1024)
         if data == b"isMyTurn":

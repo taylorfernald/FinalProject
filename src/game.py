@@ -30,9 +30,6 @@ class Map():
         return self.map_array[x][y]
     def getOwnership(self, x, y):
         """Gets the ownership status of a certain tile. Returns False if that tile happens to be out of bounds"""
-        print("Ownership")
-        print(x)
-        print(y)
         if x < 0 or x >= MAPWIDTH: return False 
         if y < 0 or y >= MAPHEIGHT: return False
         print(self.own_array[x][y])
@@ -149,7 +146,6 @@ class Game():
             if not self.isTurn:
                 #The host listens out for the guest's turn
                 changed, point = self.server.update()
-                print("Host is done listening!")
                 if changed:
                     x, y = point
                     self.setOwnership(x, y, not self.server.clientTurn)
