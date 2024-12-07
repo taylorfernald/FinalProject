@@ -1,3 +1,9 @@
+#Important info:
+#This is a distributed application LAN game (see presentation)
+#I did find how some parts of Python work from online official documentation
+# and Geeks for Geeks (the later is listed as a comment where relevant).
+#All written code is original.
+
 import pygame as pg
 from inc.settings import *
 from .lobby import *
